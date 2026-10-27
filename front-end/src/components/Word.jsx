@@ -30,7 +30,7 @@ function Word({word,editingWordId, setEditingWordId}) {
         
         try{
             
-            const res = await fetch(`http://localhost:3000/api/vocab/${word._id}`,{
+            const res = await fetch(`${import.meta.env.VITE_URL}/api/vocab/${word._id}`,{
             method:"DELETE",
             headers:{
                     Authorization:`Bearer ${jwtToken}`

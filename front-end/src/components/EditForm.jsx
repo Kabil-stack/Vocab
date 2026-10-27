@@ -10,7 +10,7 @@ function EditForm({setEditingWordId,vocab,setVocab,meaning,setMeaning,example,se
         e.preventDefault()
         try{
            
-            const res = await fetch(`http://localhost:3000/api/vocab/${word._id}`,{
+            const res = await fetch(`${import.meta.env.VITE_URL}/api/vocab/${word._id}`,{
                 method:"PATCH",
                 headers:{
                     "Content-Type": "application/json",

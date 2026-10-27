@@ -4,7 +4,7 @@ import toast from "react-hot-toast"
 function UserDetail({user}) {
     const {jwtToken} = useVocab()
     async function deleteUser() {
-         const res = await fetch("http://localhost:3000/api/user",{
+         const res = await fetch(`${import.meta.env.VITE_URL}/api/user`,{
             method:"DELETE",
             headers:{
                     "Content-Type":"application/json",

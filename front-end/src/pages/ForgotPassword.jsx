@@ -26,7 +26,7 @@ function ForgotPassword() {
     async function sendMail(e){
         e.preventDefault();
         setIsLoading(true);
-        const res = await fetch("http://localhost:3000/api/user/forgot-password",{
+        const res = await fetch(`${import.meta.env.VITE_URL}/api/user/forgot-password`,{
             method:"POST",
             headers:{
                     "Content-Type":"application/json",

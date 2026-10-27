@@ -21,7 +21,7 @@ function Login() {
        try{
 
        
-       const res = await fetch("http://localhost:3000/api/user/login",{
+       const res = await fetch(`${import.meta.env.VITE_URL}/api/user/login`,{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json",

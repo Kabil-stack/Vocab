@@ -31,7 +31,7 @@ function VocabForm() {
 
     async function  handleAddVocab(e){
         e.preventDefault()
-        const res = await fetch("http://localhost:3000/api/vocab",{
+        const res = await fetch(`${import.meta.env.VITE_URL}/api/vocab`,{
             method:"POST",
             headers:{
                     "Content-Type":"application/json",

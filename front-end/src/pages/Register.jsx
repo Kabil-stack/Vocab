@@ -16,7 +16,7 @@ function Register() {
     const navigate = useNavigate()
     async function handleSignup(e){
         e.preventDefault();
-        const res = await fetch("http://localhost:3000/api/user",{
+        const res = await fetch(`${import.meta.env.VITE_URL}/api/user`,{
             method:"POST",
             headers:{
                     "Content-Type":"application/json",

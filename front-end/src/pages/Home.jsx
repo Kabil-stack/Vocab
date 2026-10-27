@@ -31,7 +31,7 @@ function Home() {
                 params.append("search",inpVal)
             }
             try{
-                const URL = `http://localhost:3000/api/vocab?${params.toString()}`
+                const URL = `${import.meta.env.VITE_URL}/api/vocab?${params.toString()}`
                 const res = await fetch(URL,{
                 method:"GET",
                 headers:{
