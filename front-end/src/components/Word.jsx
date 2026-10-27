@@ -37,7 +37,7 @@ function Word({word,editingWordId, setEditingWordId}) {
                 }
         })
         const data = await res.json();
-        console.log(data);
+        
         const newData = words.filter(word => word !== data.data)
         setWords(newData)
         

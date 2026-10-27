@@ -8,7 +8,7 @@ import SearchBar from "./SearchBar"
 import Page from "./Page"
 import { HiMiniNoSymbol } from "react-icons/hi2";
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { IoMdAdd } from "react-icons/io";
 import { FiMinusCircle } from "react-icons/fi";
 import { FaUserCircle } from "react-icons/fa";
@@ -37,10 +37,11 @@ function VocabList({setDifficulty,inpVal,setInpVal,page,setPage,totPage,difficul
     const navigate = useNavigate();
     const [decodedVal,setDecodedVal] = useState({})
     
-    useState(()=>{
+    useEffect(()=>{
+      if(!jwtToken)return
         function decode(){
            const decoded = jwtDecode(jwtToken)
-           console.log(decoded)
+           
            setDecodedVal(decoded)
         }
         decode(); 

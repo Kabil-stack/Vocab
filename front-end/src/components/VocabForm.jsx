@@ -46,7 +46,7 @@ function VocabForm() {
                 })
         })
         const data = await res.json()
-        console.log(data.data)
+        
         setWords(prev => [data.data.newVocab,...prev])
         
         setWord("")

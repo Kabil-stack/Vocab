@@ -41,7 +41,7 @@ function Login() {
                 return
              }
              const data = await res.json();
-              console.log(data);
+              
              if(data.user.role === "admin"){
                setJwtToken(data.token)
                localStorage.setItem("jwtToken",data.token)

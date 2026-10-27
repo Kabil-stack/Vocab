@@ -29,7 +29,7 @@ function Register() {
                 })
         });
         const data = await res.json();
-        console.log(data);
+        
         if(res.ok){
 
             toast.success("Your Account has been created successfully 😊.")

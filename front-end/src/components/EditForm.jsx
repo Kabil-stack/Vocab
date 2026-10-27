@@ -23,9 +23,9 @@ function EditForm({setEditingWordId,vocab,setVocab,meaning,setMeaning,example,se
 
                 
             })
-            console.log(res.status)
+            
             const data = await res.json()
-            console.log(data)
+            
             setEditingWordId(null)
         }catch(err){
             console.log(err)
