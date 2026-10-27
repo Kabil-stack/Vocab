@@ -7,7 +7,10 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://vocab-frontend-3rk5.onrender.com/login",
+    ],
   }),
 );
 app.use(express.json());
