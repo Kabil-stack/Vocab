@@ -1,22 +1,13 @@
 require("dotenv").config({ path: "./config.env" });
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.SMPT_USER,
-    pass: process.env.SMPT_PASS,
-  },
-});
-
+const resend = new Resend(process.env.RESEND_API_KEY);
 async function sendMail({ to, subject, text }) {
   try {
-    await transporter.sendMail({
+    await resend.emails.send({
       from: {
         name: "Vocab",
-        address: process.env.SMPT_USER,
+        address: process.env.SENDER_MAIL,
       },
       to,
       subject,
