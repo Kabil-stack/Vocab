@@ -8,7 +8,7 @@ const brevo = new BrevoClient({
 
 async function sendMail({ to, subject, text }) {
   try {
-    await brevo.transactionalEmails.sendTransacEmail({
+    const result = await brevo.transactionalEmails.sendTransacEmail({
       sender: {
         name: "Vocab",
         email: process.env.SENDER_MAIL,
@@ -17,6 +17,7 @@ async function sendMail({ to, subject, text }) {
       subject,
       textContent: text,
     });
+    console.log(result);
   } catch (err) {
     next(err);
   }
