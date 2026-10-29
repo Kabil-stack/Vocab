@@ -1,19 +1,22 @@
 require("dotenv").config({ path: "./config.env" });
-const { Resend } = require("resend");
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const { BrevoClient } = require("@getbrevo/brevo");
+
+const brevo = new BrevoClient({
+  apiKey: process.env.BREVO_API_KEY,
+});
+
 async function sendMail({ to, subject, text }) {
   try {
-    await resend.emails.send({
-      from: {
+    await brevo.transactionalEmails.sendTransacEmail({
+      sender: {
         name: "Vocab",
-        address: process.env.SENDER_MAIL,
+        email: process.env.SENDER_MAIL,
       },
-      to,
+      to: [{ email: to }],
       subject,
-      text,
+      textContent: text,
     });
-    console.log("mail sent successfully");
   } catch (err) {
     next(err);
   }
