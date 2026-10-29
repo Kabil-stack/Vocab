@@ -19,7 +19,7 @@ async function sendMail({ to, subject, text }) {
     });
     console.log(result);
   } catch (err) {
-    next(err);
+    console.log(err);
   }
 }
 
